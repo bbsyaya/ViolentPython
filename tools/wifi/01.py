@@ -10,7 +10,9 @@ Get Wifi Probe Request info
 def printPackage(package):
     if package.haslayer(Dot11ProbeReq):
         netName = package.getlayer(Dot11ProbeReq).info
-        if netName != "":
+        if netName == "":
+            print "[802.11] : ProbeReq -> [HIDDEN_WIFI]"
+        else:
             print "[802.11] : ProbeReq -> [%s]" % (netName)
 
 
