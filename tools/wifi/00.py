@@ -1,4 +1,11 @@
+#!/usr/bin/env python
+# coding:utf-8
 from scapy.all import *
+
+"""
+监听空间中的WIFI数据包
+"""
+
 
 def printPackage(package):
     if package.haslayer(Dot11Beacon):
@@ -9,6 +16,6 @@ def printPackage(package):
         print "[TCP]"
     elif package.haslayer(DNS):
         print "[DNS]"
-        
-sniff(iface="mon0", prn=printPackage)
 
+
+sniff(iface="mon0", prn=printPackage)
